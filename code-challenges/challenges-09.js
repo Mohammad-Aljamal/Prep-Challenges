@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // Important Note:
 // Kindly use forEach loop instead of for in all of your solutions
@@ -11,44 +11,57 @@
 // Required:
 
 //  Write a function that takes an array of numbers and increase the values by 10
-//  
+//
 //  Input:
 //  [20, 54, 89, 41]
 //  Output:
 //  [30, 64, 99, 51]
-//  
+//
 
 const arrInc = (arr) => {
-    let result = [];
-    // write your code here
-    return result;
-}
-// -------------------------------------------------------------------------------------------------------
+  let result = [];
+  // write your code here
+  arr.forEach((element) => {
+    element += 10;
+    result.push(element);
+  });
 
+  // result =(arr.forEach(element => console.log(element)));
+
+  return result;
+};
+// -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02:
 // Required:
 
-//  Write a function that takes an array of decimals and round every value to the closest value 
-//  
+//  Write a function that takes an array of decimals and round every value to the closest value
+//
 //  Input:
-//  [5.4, 5.5 ,6.7, 6.8] 
+//  [5.4, 5.5 ,6.7, 6.8]
 //  Output:
 //  [5, 6, 7, 7]
-// 
+//
 const roundDecimals = (arr) => {
-    // write your code here
-}
+  // write your code here
+  let arr1 = [];
+  arr.forEach((element) => {
+    element = Math.round(element);
+    arr1.push(element);
+  });
+
+  return arr1;
+};
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 03:
 // Required:
-// 
+//
 // An owner of a factory wants to give a 100$ bonus for production department employees who worked *More than* 8 hours
-// and 50$ for those who worked less, given their data increase their salary and return the data back again 
-//  
+// and 50$ for those who worked less, given their data increase their salary and return the data back again
+//
 // Input:
 // let data = [
 //     {
@@ -76,7 +89,7 @@ const roundDecimals = (arr) => {
 //         salary: "3200$"
 //     }
 // ]
-// 
+//
 // Output:
 // [
 //     {
@@ -107,8 +120,29 @@ const roundDecimals = (arr) => {
 //
 
 const employeesBonus = (arr) => {
-    // write your code here
-}
+  // write your code here
+  let arr1 = [];
+  let a = 0;
+  arr.forEach((element) => {
+    // if (element.section == "Production") {
+      element.salary = (element.salary).substring(0, element.salary.length - 1);
+
+      element.salary = Number(element.salary);
+
+      if (element.workHours > 8) {
+        element.salary += 100;
+      } else {
+        element.salary += 50;
+      }
+
+      element.salary = `${element.salary}$`;
+    
+
+    arr1.push(element);
+  });
+
+  return arr1;
+};
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
@@ -118,17 +152,34 @@ const employeesBonus = (arr) => {
 // Harry wants to buy a new mouse and keyboard for his new setup
 // He wants to choose one mouse and one keyboard from the list of prices and take the most expensive combination
 // but his budget is limited, help him by finding the most expensive *price* for a combination to buy with his budget
-// 
+//
 // Input:
 // budget = 200$
 // mouseArray = [35, 15, 75, 180, 150, 50]
 // keyBoardArray = [5, 150, 35, 120, 75, 50, 100]
-// 
+//
 // Output: 200
 
 const mostExpensive = (budget, mouseArray, keyBoardArray) => {
-    // write your code here
-}
+  // write your code here
+let max = mouseArray[0] + keyBoardArray[0];
+
+  mouseArray.forEach(element => {
+    keyBoardArray.forEach(element1 => {
+
+      if (element + element1 <= budget && element + element1 >max){
+
+        max = element +element1;
+
+      }
+    })
+
+
+
+  })
+
+  return max;
+};
 // -------------------------------------------------------------------------------------------------------
 
 module.exports = { arrInc, roundDecimals, employeesBonus, mostExpensive };
