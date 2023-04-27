@@ -76,8 +76,16 @@ const oddFiltration = (arr) => {
 const cvsFiltration = (arr) => {
     // write your code here
 
+    let newObj;
+
     let emp = arr.filter(element1 => element1.tech == 'JS' );
-    let emp1 = emp.filter(element => Number(element.yearsOfExperience) > 4);
+    let emp1 = emp.filter(element => {Number(element.yearsOfExperience) > 4
+    
+    emp1.fullName = `${element.firstName} ${element.LastName}`;
+    emp1.tech = emp.tech;
+    
+    });
+
 
     // for (let i=0;i<emp1.length;i++){
 
