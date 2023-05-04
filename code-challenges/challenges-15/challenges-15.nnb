@@ -24,7 +24,7 @@
         {
             "language": "javascript",
             "source": [
-                "function equalizeArray(arr) {\n    // Write your code here\n    \n    let count =0;\n    let idx=0;\n    let s=0;\n    \n    for (let i=0; i<arr.length; i++){\n        count=0;\n        for (let j=0; j<=arr.length; j++){\n            if (arr[i]==arr[j] && i!=j){\n                count++;\n            }\n        }\n        if (count > s){\n            s=count;\n            idx = i;\n        }\n    }\n    \n    let newArr = arr.filter (num => arr[idx]==num);\n    let diff = arr.length - newArr.length;\n    \n    return diff;\n}"
+                "function equalizeArray(arr) {\n    // Write your code here\n    \n    let count =0;\n    let idx=0;\n    let max=0;\n    \n    for (let i=0; i<arr.length; i++){\n        count=0;\n        for (let j=0; j<=arr.length; j++){\n            if (arr[i]==arr[j] && i!=j){\n                count++;\n            }\n        }\n        if (count > max){\n            max=count;\n            idx = i;\n        }\n    }\n    \n    let newArr = arr.filter (num => arr[idx]==num);\n    let diff = arr.length - newArr.length;\n    \n    return diff;\n}"
             ],
             "outputs": []
         },
